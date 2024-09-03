@@ -11,8 +11,8 @@ int Menu::showMainMenu()
     cout << "2. Administrator \n";
     cout << "3. Exit \n";
     cout << "Enter your choice: ";
-    cin >> choice;
-    return choice;
+    cin >> this->choice;
+    return this->choice;
 }
 
 void Menu::showCustomerMenu(Inventory &inventory)

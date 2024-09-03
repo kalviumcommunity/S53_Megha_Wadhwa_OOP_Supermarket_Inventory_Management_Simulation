@@ -6,23 +6,23 @@ using namespace std;
 
 void Inventory::addProduct(const Product& product)
 {
-    products.push_back(product);
+    this->products.push_back(product);
 }
 
 void Inventory::removeProduct(int productID)
 {
-    for (auto item = products.begin(); item != products.end(); ++item)
+    for (auto item = this->products.begin(); item != this->products.end(); ++item)
     {
         if (item->getDetails().productID == productID)
         {
-            products.erase(item);
+            this->products.erase(item);
             break;
         }
     }
 }
 
 Product* Inventory::findProduct(int productID) {
-    for (auto& product : products) {
+    for (auto& product : this->products) {
         if (product.getDetails().productID == productID) {
             return &product;
         }
@@ -31,7 +31,7 @@ Product* Inventory::findProduct(int productID) {
 }
 
 void Inventory::listProducts() {
-    for (auto& product : products) {
+    for (auto& product : this->products) {
         ProductDetails details = product.getDetails();
         
         cout << "ID: " << details.productID
