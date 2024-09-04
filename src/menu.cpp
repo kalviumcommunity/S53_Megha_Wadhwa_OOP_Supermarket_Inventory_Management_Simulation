@@ -52,6 +52,7 @@ void Menu::showCustomerMenu(Inventory &inventory)
 
         case 3:
             cout << "Returning to Main Menu...\n";
+            showMainMenu();
             break;
 
         default:
@@ -114,6 +115,7 @@ void Menu::showAdministratorMenu(Inventory &inventory)
 
         case 4:
             cout << "Returning to Main Menu...\n";
+            showMainMenu();
             break;
 
         default:
