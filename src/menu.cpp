@@ -15,7 +15,7 @@ int Menu::showMainMenu()
     return this->choice;
 }
 
-void Menu::showCustomerMenu(Inventory &inventory)
+void Menu::showCustomerMenu(Inventory* inventory)
 {
     int option;
     do {
@@ -29,7 +29,7 @@ void Menu::showCustomerMenu(Inventory &inventory)
         switch (option)
         {
         case 1:
-            inventory.listProducts();
+            inventory->listProducts();
             break;
 
         case 2:
@@ -40,7 +40,7 @@ void Menu::showCustomerMenu(Inventory &inventory)
             cout << "Enter quantity: ";
             cin >> quantity;
 
-            Product* product = inventory.findProduct(productID);
+            Product* product = inventory->findProduct(productID);
             if (product && product->isAvailable(quantity)) {
                 product->updateQuantity(-quantity);
                 cout << "Purchased " << quantity << " units of " << product->getDetails().productName << endl;
@@ -61,7 +61,7 @@ void Menu::showCustomerMenu(Inventory &inventory)
     } while (option != 3);
 }
 
-void Menu::showAdministratorMenu(Inventory &inventory)
+void Menu::showAdministratorMenu(Inventory* inventory)
 {
     int option;
     do {
@@ -94,7 +94,7 @@ void Menu::showAdministratorMenu(Inventory &inventory)
             cout << "Enter Expiry Date: ";
             cin >> expiry;
 
-            inventory.addProduct(Product(id, name, category, price, qty, expiry));
+            inventory->addProduct(Product(id, name, category, price, qty, expiry));
             cout << "Product added successfully.\n";
             break;
         }
@@ -104,13 +104,13 @@ void Menu::showAdministratorMenu(Inventory &inventory)
             int productID;
             cout << "Enter Product ID to remove: ";
             cin >> productID;
-            inventory.removeProduct(productID);
+            inventory->removeProduct(productID);
             cout << "Product removed successfully.\n";
             break;
         }
 
         case 3:
-            inventory.listProducts();
+            inventory->listProducts();
             break;
 
         case 4:

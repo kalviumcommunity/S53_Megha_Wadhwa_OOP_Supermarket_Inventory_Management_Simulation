@@ -8,7 +8,7 @@
 class Inventory
 {
 private:
-    vector<Product> products;
+    vector<Product*> products;
 
 public:
     void addProduct(const Product &product);
