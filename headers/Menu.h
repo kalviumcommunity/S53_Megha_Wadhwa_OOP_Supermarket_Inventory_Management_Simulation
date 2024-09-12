@@ -10,8 +10,8 @@ private:
 
 public:
     int showMainMenu();
-    void showCustomerMenu(Inventory& inventory);
-    void showAdministratorMenu(Inventory& inventory);
+    void showCustomerMenu(Inventory* inventory);
+    void showAdministratorMenu(Inventory* inventory);
     void exit();
 };
 
