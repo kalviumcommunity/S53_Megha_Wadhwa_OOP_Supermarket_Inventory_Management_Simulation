@@ -18,6 +18,9 @@ struct ProductDetails
 
 class Product
 {
+    static int nextID;
+    static int totalProducts;
+    
     int productID;
     string productName;
     string category;
@@ -26,13 +29,20 @@ class Product
     string expiryDate;
 
 public:
-    Product(int id, const string &name, const string &cat, double pr, int qty, const string &expDate)
-        : productID(id), productName(name), category(cat), price(pr), quantity(qty), expiryDate(expDate) {}
+    Product( const string &name, const string &cat, double pr, int qty, const string &expDate)
+        :productName(name), category(cat), price(pr), quantity(qty), expiryDate(expDate)
+    {
+        productID = getProductID();
+        totalProducts++;
+    }
+
     ProductDetails getDetails();
     void updatePrice(double newPrice);
     void updateQuantity(int amount);
     bool isAvailable(int requestedQuantity);
     bool isExpired();
+    static int getTotalNumberOfProducts();
+    static int getProductID();
 };
 
 #endif

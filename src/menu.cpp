@@ -81,10 +81,9 @@ void Menu::showAdministratorMenu(Inventory* inventory)
             double price;
             string name, category, expiry;
 
-            cout << "Enter Product ID: ";
-            cin >> id;
             cout << "Enter Product Name: ";
-            cin >> name;
+            cin.ignore();
+            getline(cin,name);
             cout << "Enter Category: ";
             cin >> category;
             cout << "Enter Price: ";
@@ -94,7 +93,7 @@ void Menu::showAdministratorMenu(Inventory* inventory)
             cout << "Enter Expiry Date: ";
             cin >> expiry;
 
-            inventory->addProduct(Product(id, name, category, price, qty, expiry));
+            inventory->addProduct(Product(name, category, price, qty, expiry));
             cout << "Product added successfully.\n";
             break;
         }

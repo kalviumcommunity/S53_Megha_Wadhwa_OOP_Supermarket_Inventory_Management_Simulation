@@ -3,10 +3,23 @@
 
 using namespace std;
 
+int Product::nextID = 0;
+
+int Product::totalProducts = 0;
+
+int Product::getTotalNumberOfProducts(){
+    return totalProducts;
+}
+
+int Product::getProductID(){
+    return ++nextID;
+}
+
 ProductDetails Product::getDetails()
 {
     ProductDetails details;
-    details.productID = this->productID;
+
+    details.productID = productID;
     details.productName = this->productName;
     details.category = this->category;
     details.price = this->price;
@@ -32,5 +45,6 @@ bool Product::isAvailable(int requestedQuantity)
 
 bool Product::isExpired()
 {
-    return false;  // This is a placeholder. Implement actual expiry check if needed.
+    return false;
 }
+
