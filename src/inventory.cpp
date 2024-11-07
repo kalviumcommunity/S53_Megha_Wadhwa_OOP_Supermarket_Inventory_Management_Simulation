@@ -1,23 +1,20 @@
 #include <iostream>
 #include "../headers/Inventory.h"
 #include "../headers/Product.h"
+#include "../headers/Category.h"
 #include <iomanip>
 #include <vector>
 
 using namespace std;
 
-void Inventory::addProduct(const Product &product)
-{
+void Inventory::addProduct(const Product &product) {
     Product *newProduct = new Product(product);
     this->products.push_back(newProduct);
 }
 
-void Inventory::removeProduct(int productID)
-{
-    for (auto item = this->products.begin(); item != this->products.end(); ++item)
-    {
-        if ((*item)->getDetails().productID == productID)
-        {
+void Inventory::removeProduct(int productID) {
+    for (auto item = this->products.begin(); item != this->products.end(); ++item) {
+        if ((*item)->getDetails().productID == productID) {
             delete *item;
             this->products.erase(item);
             break;
@@ -25,26 +22,20 @@ void Inventory::removeProduct(int productID)
     }
 }
 
-Product *Inventory::findProduct(int productID)
-{
-    for (auto &product : this->products)
-    {
-        if (product->getDetails().productID == productID)
-        {
+Product *Inventory::findProduct(int productID) {
+    for (auto &product : this->products) {
+        if (product->getDetails().productID == productID) {
             return product;
         }
     }
     return nullptr;
 }
 
-void Inventory::listProducts()
-
-{
+void Inventory::listProducts() {
     const char separator = ' ';
     const int nameWidth = 10;
     const int numWidth = 10;
     cout << "Total Products in the Inventory: " << Product::getTotalNumberOfProducts() << endl;
-    // cout << "_____________________________________________________________________________\n";
     cout << "_________________________________________________________________________________\n";
     cout << left << setw(nameWidth) << setfill(separator) << "ID" << "  | ";
     cout << left << setw(nameWidth) << setfill(separator) << "Name" << "  | ";
@@ -53,10 +44,8 @@ void Inventory::listProducts()
     cout << left << setw(nameWidth) << setfill(separator) << "Quantity" << "  | ";
     cout << left << setw(nameWidth) << setfill(separator) << "Expiry Date" << " | ";
     cout << endl;
-    for (auto &product : products)
-    {
+    for (auto &product : products) {
         ProductDetails details = product->getDetails();
-
         cout << "_________________________________________________________________________________\n";
         cout << left << setw(nameWidth) << setfill(separator) << details.productID << "  | ";
         cout << left << setw(nameWidth) << setfill(separator) << details.productName << "  | ";
@@ -69,25 +58,19 @@ void Inventory::listProducts()
     cout << "_________________________________________________________________________________\n";
 }
 
-void Inventory::addCategory(const Category &category)
-{
+void Inventory::addCategory(const Category &category) {
     categories.push_back(new Category(category));
 }
 
-void Inventory::listCategories() const
-{
-    for (const auto *category : categories)
-    {
+void Inventory::listCategories() const {
+    for (const auto *category : categories) {
         cout << "Category ID: " << category->getCategoryID() << ", Name: " << category->getCategoryName() << "\n";
     }
 }
 
-void Inventory::listProductsByCategory(const string &categoryName) const
-{
-    for (const auto *product : products)
-    {
-        if (product->getCategory() == categoryName)
-        {
+void Inventory::listProductsByCategory(const string &categoryName) const {
+    for (const auto *product : products) {
+        if (product->getCategory() == categoryName) {
             ProductDetails details = product->getDetails();
             cout << "ID: " << details.productID << ", Name: " << details.productName
                  << ", Price: " << details.price << ", Quantity: " << details.quantity << "\n";

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "AbstractProduct.h" // Include the abstract class header
 
 using namespace std;
 
@@ -16,8 +17,8 @@ struct ProductDetails
     string expiryDate;
 };
 
-class Product
-{
+class Product : public AbstractProduct { // Inherit from AbstractProduct
+private:
     static int nextID;
     static int totalProducts;
 
@@ -37,22 +38,24 @@ public:
     }
 
     ProductDetails getDetails() const;
-    void updatePrice(double newPrice);
-    void updateQuantity(int amount);
-    bool isAvailable(int requestedQuantity) const;
-    bool isExpired() const;
+
+    // Implementing abstract methods
+    string getProductName() const override;
+    string getCategory() const override;
+    double getPrice() const override;
+    int getQuantity() const override;
+    string getExpiryDate() const override;
+    void updatePrice(double newPrice) override;
+    void updateQuantity(int amount) override;
+    bool isAvailable(int requestedQuantity) const override;
+    bool isExpired() const override;
+
     static int getTotalNumberOfProducts();
     static int getProductID();
 
     void setProductName(const string &name);
     void setCategory(const string &cat);
     void setExpiryDate(const string &expDate);
-
-    string getProductName() const;
-    string getCategory() const;
-    double getPrice() const;
-    int getQuantity() const;
-    string getExpiryDate() const;
 };
 
-#endif
+#endif // PRODUCT_H

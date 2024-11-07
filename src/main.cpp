@@ -11,8 +11,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     Inventory *inventory = new Inventory();
     Menu *menu = new Menu();
 
@@ -37,15 +36,13 @@ int main()
     };
 
     // Add each product in the array to the inventory
-    for (int i = 0; i < NUM_PRODUCTS; i++)
-    {
+    for (int i = 0; i < NUM_PRODUCTS; i++) {
         inventory->addProduct(products[i]);
     }
 
     cout << "\n--- Welcome to Supermarket Inventory Management System ---\n";
     int option = menu->showMainMenu();
-    switch (option)
-    {
+    switch (option) {
     case 1:
         menu->showCustomerMenu(inventory);
         break;

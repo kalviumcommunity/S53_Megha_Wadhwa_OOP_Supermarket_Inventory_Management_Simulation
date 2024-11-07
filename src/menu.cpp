@@ -3,8 +3,8 @@
 #include "../headers/Inventory.h"
 #include "../headers/Product.h"
 #include "../headers/Category.h"
-using namespace std;
 
+using namespace std;
 
 int Menu::showMainMenu() {
     cout << "1. Customer\n";
