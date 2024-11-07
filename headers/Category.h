@@ -2,7 +2,6 @@
 #define CATEGORY_H
 
 #include <string>
-#include "AbstractCategory.h"
 
 using namespace std;
 
@@ -17,7 +16,8 @@ public:
         : categoryID(id), categoryName(name), description(desc) {}
 };
 
-class Category : public AbstractCategory {
+class Category
+{
 private:
     static int nextID;
     static int totalCategories;
@@ -29,11 +29,11 @@ private:
 public:
     Category(const string &name, const string &desc);
 
-    int getCategoryID() const override;
-    string getCategoryName() const override;
-    string getDescription() const override;
-
     CategoryDetails getDetails() const;
+    int getCategoryID() const;
+    string getCategoryName() const;
+    string getDescription() const;
+
     void setCategoryName(const string &name);
     void setDescription(const string &desc);
 

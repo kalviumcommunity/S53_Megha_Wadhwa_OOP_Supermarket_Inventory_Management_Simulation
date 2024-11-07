@@ -3,7 +3,6 @@
 
 #include <string>
 #include <vector>
-#include "AbstractProduct.h"
 
 using namespace std;
 
@@ -17,8 +16,9 @@ struct ProductDetails
     string expiryDate;
 };
 
-class Product : public AbstractProduct {
-private:
+class Product
+{
+protected:
     static int nextID;
     static int totalProducts;
 
@@ -47,28 +47,29 @@ public:
     }
 
     // Destructor
-    ~Product() {
+    virtual ~Product() {
         totalProducts--;
     }
 
+    // virtual ~Product() = default;
+    virtual bool isExpired() const = 0;
+
     ProductDetails getDetails() const;
-
-    string getProductName() const override;
-    string getCategory() const override;
-    double getPrice() const override;
-    int getQuantity() const override;
-    string getExpiryDate() const override;
-    void updatePrice(double newPrice) override;
-    void updateQuantity(int amount) override;
-    bool isAvailable(int requestedQuantity) const override;
-    bool isExpired() const override;
-
+    void updatePrice(double newPrice);
+    void updateQuantity(int amount);
+    bool isAvailable(int requestedQuantity) const;
     static int getTotalNumberOfProducts();
     static int getProductID();
 
     void setProductName(const string &name);
     void setCategory(const string &cat);
     void setExpiryDate(const string &expDate);
+
+    string getProductName() const;
+    string getCategory() const;
+    double getPrice() const;
+    int getQuantity() const;
+    string getExpiryDate() const;
 };
 
-#endif // PRODUCT_H
+#endif
