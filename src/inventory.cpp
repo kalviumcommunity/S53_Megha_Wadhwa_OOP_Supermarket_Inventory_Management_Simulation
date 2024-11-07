@@ -38,6 +38,7 @@ Product *Inventory::findProduct(int productID)
 }
 
 void Inventory::listProducts()
+
 {
     const char separator = ' ';
     const int nameWidth = 10;
@@ -66,4 +67,30 @@ void Inventory::listProducts()
         cout << endl;
     }
     cout << "_________________________________________________________________________________\n";
+}
+
+void Inventory::addCategory(const Category &category)
+{
+    categories.push_back(new Category(category));
+}
+
+void Inventory::listCategories() const
+{
+    for (const auto *category : categories)
+    {
+        cout << "Category ID: " << category->getCategoryID() << ", Name: " << category->getCategoryName() << "\n";
+    }
+}
+
+void Inventory::listProductsByCategory(const string &categoryName) const
+{
+    for (const auto *product : products)
+    {
+        if (product->getCategory() == categoryName)
+        {
+            ProductDetails details = product->getDetails();
+            cout << "ID: " << details.productID << ", Name: " << details.productName
+                 << ", Price: " << details.price << ", Quantity: " << details.quantity << "\n";
+        }
+    }
 }
