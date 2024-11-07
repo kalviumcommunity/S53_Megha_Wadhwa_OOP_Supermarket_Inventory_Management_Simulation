@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "AbstractProduct.h" // Include the abstract class header
+#include "AbstractProduct.h"
 
 using namespace std;
 
@@ -17,7 +17,7 @@ struct ProductDetails
     string expiryDate;
 };
 
-class Product : public AbstractProduct { // Inherit from AbstractProduct
+class Product : public AbstractProduct {
 private:
     static int nextID;
     static int totalProducts;
@@ -30,6 +30,15 @@ private:
     string expiryDate;
 
 public:
+    // Default constructor
+    Product()
+        : productName("Unknown"), category("General"), price(0.0), quantity(0), expiryDate("N/A")
+    {
+        productID = getProductID();
+        totalProducts++;
+    }
+
+    // Parameterized constructor
     Product(const string &name, const string &cat, double pr, int qty, const string &expDate)
         : productName(name), category(cat), price(pr), quantity(qty), expiryDate(expDate)
     {
@@ -37,9 +46,13 @@ public:
         totalProducts++;
     }
 
+    // Destructor
+    ~Product() {
+        totalProducts--;
+    }
+
     ProductDetails getDetails() const;
 
-    // Implementing abstract methods
     string getProductName() const override;
     string getCategory() const override;
     double getPrice() const override;
