@@ -58,7 +58,7 @@ bool Product::isAvailable(int requestedQuantity) const {
 }
 
 bool Product::isExpired() const {
-    return false; // Placeholder for expiration logic
+    return false;
 }
 
 void Product::setProductName(const string &name) {
