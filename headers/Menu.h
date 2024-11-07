@@ -1,18 +1,15 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include <iostream>
 #include "Inventory.h"
+using namespace std;
 
-class Menu
-{
-private:
-    int choice;
-
+class Menu {
 public:
-    int showMainMenu();
-    void showCustomerMenu(Inventory* inventory);
-    void showAdministratorMenu(Inventory* inventory);
+    virtual ~Menu() {}
+    virtual void showMenu(Inventory* inventory) = 0;
     void exit();
 };
 
-#endif // MENU_H
+#endif

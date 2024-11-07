@@ -1,4 +1,3 @@
-#include <iostream>
 #include "../headers/Category.h"
 
 using namespace std;
