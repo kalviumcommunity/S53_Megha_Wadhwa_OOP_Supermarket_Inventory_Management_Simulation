@@ -18,7 +18,6 @@ struct ProductDetails
 
 class Product
 {
-protected:
     static int nextID;
     static int totalProducts;
 

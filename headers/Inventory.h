@@ -9,7 +9,6 @@ using namespace std;
 
 class Inventory
 {
-private:
     vector<Product*> products;
     vector<Category*> categories;
 
