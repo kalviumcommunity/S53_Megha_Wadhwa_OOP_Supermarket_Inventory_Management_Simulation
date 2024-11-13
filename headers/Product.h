@@ -8,6 +8,7 @@ using namespace std;
 
 struct ProductDetails
 {
+public:
     int productID;
     string productName;
     string category;
@@ -18,6 +19,7 @@ struct ProductDetails
 
 class Product
 {
+protected:
     static int nextID;
     static int totalProducts;
 

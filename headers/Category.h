@@ -18,7 +18,7 @@ public:
 
 class Category
 {
-private:
+protected:
     static int nextID;
     static int totalCategories;
 
