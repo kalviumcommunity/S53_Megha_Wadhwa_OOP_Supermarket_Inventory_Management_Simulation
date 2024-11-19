@@ -56,8 +56,11 @@ public:
     virtual bool isExpired() const = 0;
 
     ProductDetails getDetails() const;
-    void updatePrice(double newPrice);
-    void updateQuantity(int amount);
+    void updatePrice(double newPrice);               
+    void updatePrice(double percentage, bool isIncrease);
+
+    void updateQuantity(int amount);                
+    void updateQuantity(bool isRestock, int amount); 
     bool isAvailable(int requestedQuantity) const;
     static int getTotalNumberOfProducts();
     static int getProductID();
