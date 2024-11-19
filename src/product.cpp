@@ -49,8 +49,26 @@ void Product::updatePrice(double newPrice) {
     this->price = newPrice;
 }
 
+void Product::updatePrice(double percentage, bool isIncrease) {
+    if (percentage < 0)
+        cout<<"Percentage cannot be negative."<<endl;
+    if (isIncrease)
+        price += price * (percentage / 100);
+    else
+        price -= price * (percentage / 100);
+    if (price < 0) price = 0;
+}
+
 void Product::updateQuantity(int amount) {
     this->quantity += amount;
+}
+
+void Product::updateQuantity(bool isRestock, int amount) {
+    if (isRestock)
+        quantity += amount;
+    else
+        quantity -= amount;
+    if (quantity < 0) quantity = 0;
 }
 
 bool Product::isAvailable(int requestedQuantity) const {
