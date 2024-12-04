@@ -31,7 +31,6 @@ protected:
     string expiryDate;
 
 public:
-    // Default constructor
     Product()
         : productName("Unknown"), category("General"), price(0.0), quantity(0), expiryDate("N/A")
     {
@@ -39,7 +38,6 @@ public:
         totalProducts++;
     }
 
-    // Parameterized constructor
     Product(const string &name, const string &cat, double pr, int qty, const string &expDate)
         : productName(name), category(cat), price(pr), quantity(qty), expiryDate(expDate)
     {
@@ -47,12 +45,10 @@ public:
         totalProducts++;
     }
 
-    // Destructor
     virtual ~Product() {
         totalProducts--;
     }
 
-    // This is a pure virtual function, must be overridden in derived classes
     virtual bool isExpired() const = 0;
 
     ProductDetails getDetails() const;

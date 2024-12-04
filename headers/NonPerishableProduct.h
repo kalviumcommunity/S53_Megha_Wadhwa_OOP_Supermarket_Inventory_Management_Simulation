@@ -3,20 +3,12 @@
 
 #include "Product.h"
 
-class NonPerishableProduct : public Product
-{
+class NonPerishableProduct : public Product {
 public:
-    NonPerishableProduct() {
-        // Default values for non-perishable product
-        productName = "Default NonPerishable";
-        category = "General";
-        price = 0.0;
-        quantity = 0;
-    }
-    NonPerishableProduct(const string &name, const string &cat, double pr, int qty)
-        : Product(name, cat, pr, qty, "") {}
+    NonPerishableProduct(const string &name, const string &cat, double pr, int qty);
+    virtual ~NonPerishableProduct() = default;
 
-    bool isExpired() const override;  // Correctly override the base class method
+    bool isExpired() const override;
 };
 
 #endif

@@ -11,8 +11,8 @@ private:
     CategoryManager categoryManager;
 
 public:
-    ProductManager &getProductManager();   // Provide access to ProductManager
-    CategoryManager &getCategoryManager(); // Provide access to CategoryManager
+    ProductManager &getProductManager();  
+    CategoryManager &getCategoryManager();
 };
 
 #endif // INVENTORY_H

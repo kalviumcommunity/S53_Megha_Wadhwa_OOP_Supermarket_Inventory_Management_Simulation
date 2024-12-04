@@ -7,6 +7,7 @@
 #include "../headers/Category.h"
 #include "../headers/CustomerMenu.h"
 #include "../headers/AdministratorMenu.h"
+#include "../headers/Product.h"
 
 #include "category.cpp"
 #include "product.cpp"
@@ -21,19 +22,16 @@
 int main() {
     Inventory inventory;
 
-    // Add categories
     inventory.getCategoryManager().addCategory(Category("Dairy", "Products made from milk"));
     inventory.getCategoryManager().addCategory(Category("Bakery", "Freshly baked goods"));
 
     Product* milk = new PerishableProduct("Milk", "Dairy", 1.99, 100, "2025-12-31");
     inventory.getProductManager().addProduct(milk);
 
-    // Create and add a NonPerishableProduct
     Product* rice = new NonPerishableProduct("Rice", "Grains", 2.50, 50);
     inventory.getProductManager().addProduct(rice);
 
 
-    // Main menu
     int userChoice;
     do {
         std::cout << "Welcome to Inventory Management System\n";

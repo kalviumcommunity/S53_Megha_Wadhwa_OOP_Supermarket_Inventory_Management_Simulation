@@ -1,5 +1,6 @@
 #include "../headers/AdministratorMenu.h"
 #include <iostream>
+#include "../headers/PerishableProduct.h"
 
 void AdministratorMenu::showMenu(Inventory* inventory) {
     int choice;
