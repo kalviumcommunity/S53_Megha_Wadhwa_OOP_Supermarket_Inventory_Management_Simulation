@@ -27,7 +27,12 @@ protected:
     string description;
 
 public:
-    Category(const string &name, const string &desc);
+    Category(const string &name, const string &desc)
+        : categoryName(name), description(desc)
+    {
+        categoryID = getNextCategoryID();
+        totalCategories++;
+    }
 
     CategoryDetails getDetails() const;
     int getCategoryID() const;

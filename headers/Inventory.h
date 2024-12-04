@@ -1,26 +1,18 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include "./Product.h"
-#include "./Category.h"
-#include <vector>
-
-using namespace std;
+#include "./ProductManager.h"
+#include "./CategoryManager.h"
 
 class Inventory
 {
 private:
-    vector<Product*> products;
-    vector<Category*> categories;
+    ProductManager productManager;
+    CategoryManager categoryManager;
 
 public:
-    void addProduct(const Product &product);
-    void removeProduct(int productID);
-    Product *findProduct(int productID);
-    void listProducts();
-    void addCategory(const Category &category);
-    void listCategories() const;
-    void listProductsByCategory(const string &categoryName) const;
+    ProductManager &getProductManager();   // Provide access to ProductManager
+    CategoryManager &getCategoryManager(); // Provide access to CategoryManager
 };
 
 #endif // INVENTORY_H
