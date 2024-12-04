@@ -5,12 +5,6 @@ using namespace std;
 int Category::nextID = 1;
 int Category::totalCategories = 0;
 
-Category::Category(const string &name, const string &desc)
-    : categoryName(name), description(desc) {
-    categoryID = getNextCategoryID();
-    totalCategories++;
-}
-
 int Category::getTotalNumberOfCategories() {
     return totalCategories;
 }
