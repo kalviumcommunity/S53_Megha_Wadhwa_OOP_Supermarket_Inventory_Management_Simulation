@@ -1,9 +1,11 @@
 #include "../headers/PerishableProduct.h"
 #include <iostream>
-#include <ctime>
+
+PerishableProduct::PerishableProduct(const string &name, const string &cat, double pr, int qty, const string &expDate)
+    : Product(name, cat, pr, qty, expDate) {}
 
 bool PerishableProduct::isExpired() const {
-
-    if (expiryDate == "N/A") return false;
-    return true;
+    if (getExpiryDate() == "N/A") return false;
+    
+    return false;
 }
