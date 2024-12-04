@@ -16,7 +16,7 @@ public:
     NonPerishableProduct(const string &name, const string &cat, double pr, int qty)
         : Product(name, cat, pr, qty, "") {}
 
-    bool isExpired() const override;
+    bool isExpired() const override;  // Correctly override the base class method
 };
 
 #endif

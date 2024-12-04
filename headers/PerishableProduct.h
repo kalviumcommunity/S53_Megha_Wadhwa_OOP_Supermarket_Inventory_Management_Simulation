@@ -19,7 +19,7 @@ public:
         : Product(name, cat, pr, qty, expDate)
     {}
 
-    bool isExpired() const override;
+    bool isExpired() const override;  // Correctly override the base class method
 };
 
 #endif
